@@ -36,7 +36,8 @@ function levelUp() {
     level++;
     h2.innerText = `Level ${level}`;
 
-    let randIdx = Math.floor(Math.random() * 3);
+    // Corrected random index to include all four colors (red, yellow, green, purple)
+    let randIdx = Math.floor(Math.random() * 4);
     let randColor = btns[randIdx];
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
@@ -66,11 +67,11 @@ function btnPress() {
     userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
-    checkAns(userSeq.length-1);
+    checkAns(userSeq.length - 1);
 }
 
 let allBtns = document.querySelectorAll(".btn");
-for(btn of allBtns) {
+for (btn of allBtns) {
     btn.addEventListener("click", btnPress);
 }
 
